@@ -7,11 +7,11 @@
 #include <algorithm>
 #include <vector>
 #include <stdexcept>
-#include <cctype>  // Added for tolower()
+#include <cctype>  
 
 using namespace std;
 
-// Structure to hold weather data for a city
+
 struct WeatherData {
     float temp;
     int humidity;
@@ -29,7 +29,7 @@ struct WeatherData {
     string forecast;
 };
 
-// File Handler Class
+
 class WeatherFileHandler {
 private:
     string filename;
@@ -37,13 +37,13 @@ private:
 public:
     WeatherFileHandler(const string& file) : filename(file) {}
 
-    // Check if file exists using simple ifstream
+    
     bool fileExists() const {
         ifstream file(filename);
         return file.good();
     }
 
-    // Load weather data from file
+   
     map<string, WeatherData> loadData() {
         map<string, WeatherData> data;
         ifstream file(filename);
@@ -63,9 +63,9 @@ public:
                 >> wdata.windDirection >> wdata.pressure >> wdata.visibility >> wdata.dewPoint
                 >> wdata.aqi >> wdata.uvIndex >> wdata.sunrise >> wdata.sunset;
 
-            // Read condition and forecast
+            
             if (getline(file, wdata.condition) && getline(file, wdata.forecast)) {
-                // Trim whitespace
+               
                 wdata.condition = trim(wdata.condition);
                 wdata.forecast = trim(wdata.forecast);
                 data[city] = wdata;
@@ -76,7 +76,7 @@ public:
         return data;
     }
 
-    // Save weather data to file
+   
     void saveData(const map<string, WeatherData>& weatherData) {
         ofstream file(filename);
 
@@ -105,7 +105,7 @@ public:
         file.close();
     }
 
-    // Helper function to trim spaces
+   
     static string trim(const string& str) {
         size_t start = str.find_first_not_of(" \t\n\r");
         size_t end = str.find_last_not_of(" \t\n\r");
@@ -113,10 +113,10 @@ public:
     }
 };
 
-// Global weather data
+
 map<string, WeatherData> weatherData;
 
-// Helper function to convert a string to lowercase
+
 string toLowerCase(const string& str) {
     string lowerStr = str;
     transform(lowerStr.begin(), lowerStr.end(), lowerStr.begin(),
@@ -124,28 +124,28 @@ string toLowerCase(const string& str) {
     return lowerStr;
 }
 
-// For displaying weather data
+
 void printWeatherData(const string& city) {
     string formattedCity = toLowerCase(city);
 
     for (const auto& [entryCity, data] : weatherData) {
         if (toLowerCase(entryCity) == formattedCity) {
             cout << "\nCity Name: " << entryCity << endl;
-            cout << "Temperature: " << data.temp << "°C" << endl;
+            cout << "Temperature: " << data.temp << "Â°C" << endl;
             cout << "Humidity: " << data.humidity << "%" << endl;
             cout << "Precipitation: " << data.precipitation << " mm" << endl;
             cout << "Wind Speed: " << data.windSpeed << " m/s" << endl;
-            cout << "Wind Direction: " << data.windDirection << "°" << endl;
+            cout << "Wind Direction: " << data.windDirection << "Â°" << endl;
             cout << "Air Pressure: " << data.pressure << " hPa" << endl;
-            cout << "Dew Point: " << data.dewPoint << "°C" << endl;
+            cout << "Dew Point: " << data.dewPoint << "Â°C" << endl;
             cout << "Air Quality Index (AQI): " << data.aqi << endl;
             cout << "UV Index: " << data.uvIndex << endl;
 
-            // Convert timestamps to readable format
+            
             time_t sunriseTime = data.sunrise;
             time_t sunsetTime = data.sunset;
-           // cout << "Sunrise Time: " << ctime(&sunriseTime);
-            //cout << "Sunset Time: " << ctime(&sunsetTime);
+           
+            
 
             cout << "Weather Condition: " << data.condition << endl;
             cout << "Forecast: " << data.forecast << endl;
@@ -156,7 +156,7 @@ void printWeatherData(const string& city) {
     cout << "No weather data available for " << city << endl;
 }
 
-// Admin Login
+
 bool adminLogin() {
     string username, password;
     cout << "Admin Username: ";
@@ -166,7 +166,7 @@ bool adminLogin() {
     return (username == "core5" && password == "2866");
 }
 
-// Admin Panel
+
 void adminPanel(WeatherFileHandler& fileHandler) {
     int choice;
     do {
@@ -185,7 +185,7 @@ void adminPanel(WeatherFileHandler& fileHandler) {
             cin.ignore();
             getline(cin, city);
 
-            cout << "Enter Temperature (°C): ";
+            cout << "Enter Temperature (Â°C): ";
             cin >> data.temp;
             cout << "Enter Humidity (%): ";
             cin >> data.humidity;
@@ -193,13 +193,13 @@ void adminPanel(WeatherFileHandler& fileHandler) {
             cin >> data.precipitation;
             cout << "Enter Wind Speed (m/s): ";
             cin >> data.windSpeed;
-            cout << "Enter Wind Direction (°): ";
+            cout << "Enter Wind Direction (Â°): ";
             cin >> data.windDirection;
             cout << "Enter Air Pressure (hPa): ";
             cin >> data.pressure;
             cout << "Enter Visibility (m): ";
             cin >> data.visibility;
-            cout << "Enter Dew Point (°C): ";
+            cout << "Enter Dew Point (Â°C): ";
             cin >> data.dewPoint;
             cout << "Enter Air Quality Index (AQI): ";
             cin >> data.aqi;
@@ -243,7 +243,7 @@ void userPanelOffline() {
     cin.ignore();
     getline(cin, country);
 
-    // Country to capital mapping (case-insensitive)
+   
     map<string, string> capitals = {
         {"bangladesh", "Dhaka"},
         {"usa", "Washington"},
@@ -280,7 +280,7 @@ void userPanelOffline() {
 {"laos", "Vientiane"},
 {"lebanon", "Beirut"},
 {"malaysia", "Kuala Lumpur"},
-{"maldives", "Malé"},
+{"maldives", "MalÃ©"},
 {"mongolia", "Ulaanbaatar"},
 {"myanmar", "Naypyidaw"},
 {"nepal", "Kathmandu"},
@@ -350,7 +350,7 @@ int main() {
 
     } while (modeChoice != 3);
 
-    // Auto-save on exit
+    
     try {
         fileHandler.saveData(weatherData);
         cout << "Data saved on exit\n";
@@ -360,3 +360,4 @@ int main() {
 
     return 0;
 }
+
