@@ -152,20 +152,7 @@ Run the executable:
 
 ./WeatherSystem
 
-🖼️ Screenshots
-🔧 Admin Panel
 
-(Sample admin menu interface)
-
-🌤️ Adding Weather Data
-
-(Example of adding or updating records)
-
-🌍 User Mode Query
-
-(Example user input and displayed result)
-
-🖼️ (Add screenshots here when available for better presentation!)
 
 🎓 Challenges & Learning
 
