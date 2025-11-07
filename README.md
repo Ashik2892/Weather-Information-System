@@ -1,187 +1,143 @@
-🌦️ Weather Information System
-🧩 Overview
+# 🌦 Weather Information System
 
-Weather Information System is a console-based C++ application developed as a 2nd semester project by Team Core5 — Asik, Ishtiaq, and Monjur.
+> *A console-based C++ application for offline weather data management and user query simulation.*
 
-It simulates an offline weather data management system that allows users to:
 
-Query weather information of capital cities by entering a country name.
 
-Enable admins to add or update detailed weather records.
+## 📘 Overview
 
-🚀 Features
-🔐 1. Admin Panel
+*Weather Information System* is a console-based project developed as part of a *2nd semester C++ course* by *Team Core5* — Asik, Ishtiaq, and Monjur.  
+The program enables users to *query weather data* for capital cities and allows administrators to *add or update records* stored locally.
 
-Secure Authentication — Access protected with username and password.
 
-Comprehensive Data Management — Add or update weather data including:
+## 🚀 Features
 
-🌡️ Temperature (°C)
+### 🛠 Admin Panel
+- 🔐 *Secure Authentication:* Protected by username and password.
+- 🧾 *Comprehensive Data Management:* Add or update detailed weather data:
+  - Temperature (°C)
+  - Humidity (%)
+  - Precipitation (mm)
+  - Wind Speed (m/s)
+  - Wind Direction (°)
+  - Air Pressure (hPa)
+  - Visibility (m)
+  - Dew Point (°C)
+  - Air Quality Index (AQI)
+  - UV Index
+  - Weather Condition & Forecast
+- 🗂 *City Directory Overview:* View all stored cities in the database.
+- 💾 *Persistent Storage:* Saves data in weather_data.txt.
+- ⚙ *Flexible Exit Options:* Save changes or exit without saving.
 
-💧 Humidity (%)
 
-☔ Precipitation (mm)
+### 👥 User Mode
+- 🌍 *Country-to-Capital Mapping:* Includes 50+ countries mapped to their capitals.
+- 🔎 *Case-Insensitive Search:* Accepts all capitalization styles.
+- 📊 *Detailed Weather Display:* Neatly formatted report with all weather parameters.
+- 🧭 *User-Friendly Output:* Clear and readable console display.
 
-🌬️ Wind Speed (m/s)
 
-🧭 Wind Direction (°)
+### 💽 Data Persistence
+- 📂 *File-Based Storage:* Stores all weather data in weather_data.txt.
+- 🔄 *Automatic Loading:* Loads data automatically on startup.
+- 🧷 *Automatic Saving:* Automatically saves updates on exit.
 
-🌫️ Visibility (m)
 
-🧮 Air Pressure (hPa)
+## 🧰 Technologies Used
 
-🌡️ Dew Point (°C)
+| Component | Description |
+|------------|-------------|
+| *Language* | C++ |
+| *Data Storage* | Text files |
+| *Libraries/Features* | fstream, string, sstream, map, algorithm (transform), try-catch, ctime |
 
-🏙️ Air Quality Index (AQI)
 
-🌞 UV Index
+## ⚙ How It Works
 
-☁️ Weather Condition
+1. *Startup:* Loads existing data from weather_data.txt or starts empty.  
+2. *Main Menu:* Options — Admin Login, User Mode, or Exit.  
+3. *Admin Login:* Authenticate and manage weather data.  
+4. *Admin Panel:* Add/update city data, view all cities, and choose to save or discard changes.  
+5. *User Mode:* Enter a country name → retrieve its capital → display weather report.  
+6. *Exit:* Data saved automatically before program termination.
 
-🧾 Forecast Summary
+---
 
-City Directory Overview — View all stored city records for quick reference.
-
-Persistent Data Storage — Changes saved to weather_data.txt for future use.
-
-Flexible Exit Options — Save or discard edits before exiting.
-
-👥 2. User Mode
-
-Country–Capital Mapping — Database of 50+ countries linked to their capitals.
-
-Case-Insensitive Search — Accepts user input in any capitalization.
-
-Detailed Weather Display — Retrieves and formats data neatly for readability.
-
-User-Friendly Output — Simple console display for ease of understanding.
-
-💾 3. Data Persistence
-
-File-Based Storage — All data stored in a human-readable file weather_data.txt.
-
-Automatic Loading — Loads existing data at startup if available.
-
-Automatic Saving — Weather data is saved automatically upon exit.
-
-🛠️ Technologies Used
-
-Language: C++
-
-Data Storage: Text File (.txt)
-
-Standard Library Features:
-
-📂 File I/O (fstream)
-
-🔤 String Manipulation (string, sstream)
-
-🗺️ Containers (map)
-
-⚙️ Algorithms (transform)
-
-🚨 Exception Handling (try-catch)
-
-🕓 Time Handling (ctime)
-
-⚙️ How It Works
-
-Startup:
-
-Loads data from weather_data.txt (if available).
-
-Starts with an empty database otherwise.
-
-Main Menu:
-
-Choose between Admin Login, User Mode, or Exit.
-
-Admin Login:
-
-Enter predefined credentials.
-
-Manage or view weather data records.
-
-Admin Panel Options:
-
-Add / Update city weather data.
-
-View stored cities.
-
-Save and exit (or exit without saving).
-
-User Mode:
-
-Enter a country name → retrieves its capital city.
-
-Displays complete weather report for that capital.
-
-Exit:
-
-Automatically saves all data.
 
 📂 Project Structure
-Weather_Information_System/
-│
-├── main.cpp                 # Core program logic
-├── weather_data.txt         # Data storage file
-│
-├── WeatherData struct       # Holds all weather parameters
-├── WeatherFileHandler class # Handles file I/O operations
-├── maps & data structures   # Country-capital and weather info
-└── console UI menus         # Admin and user interfaces
 
-🧭 How to Run
+Weather-Information-System/
 
-Clone this repository:
+main.cpp – Core application logic
 
-[git clone https://github.com/your-username/Weather-Information-System.git](https://github.com/Ashik2892/Weather-Information-System.git)
+weather_data.txt – Local data storage
 
+README.md – Project documentation
 
-Navigate to the project directory:
+structs/
 
+WeatherData.h – Weather data structure
+
+classes/
+
+WeatherFileHandler.h – Handles file I/O operations
+`
+
+---
+
+## ▶ How to Run
+
+# 1️⃣ Clone the repository
+git clone https://github.com/Ashik2892/Weather-Information-System.git
+
+# 2️⃣ Navigate into the directory
 cd Weather-Information-System
 
+# 3️⃣ Compile the program
+g++ main.cpp -o weather_system
 
-Compile the program:
+# 4️⃣ Run the program
+./weather_system
+`
 
-g++ main.cpp -o WeatherSystem
+## 💡 Challenges & Learnings
 
+* First major *C++ console project*.
+* Implemented *file I/O* for data persistence.
+* Worked with *maps* and *structs* for organized data handling.
+* Built a *menu-driven console interface*.
+* Applied *exception handling* and *string processing*.
+* Improved teamwork and code integration skills.
 
-Run the executable:
+---
 
-./WeatherSystem
+## 🔮 Future Improvements
 
+* 🗑 Add delete functionality for city records.
+* ✅ Enhance input validation.
+* 🌐 Integrate real-time weather APIs.
+* 🎨 Add colors and better formatting to the UI.
+* 🌅 Display sunrise/sunset times.
 
+---
 
-🎓 Challenges & Learning
+## 👨‍💻 Team Core5
 
-First major project built in C++.
+| Name                 | Student ID 
+| -------------------- | ---------- 
+| *Md Asikur Rahman* | C241092    
+| *Md Istiaq Uddin*  | C241089    
+| *Md Monjur Uddin*  | C241096    
 
-Learned file handling for persistent data.
+---
 
-Used maps and structs for organized data storage.
+## ⭐ Support
 
-Implemented menu-driven console navigation.
+If you found this project helpful, please give it a *⭐ Star* on GitHub and share your feedback!
 
-Practiced string processing and exception handling.
+---
 
-Improved teamwork and collaboration through task division and code integration.
+*Team Core5 — Weather Information System (C++)*
 
-🚀 Future Improvements
-
-🗑️ Add delete functionality for city data.
-
-✅ Improve input validation.
-
-☁️ Add real-time weather API integration.
-
-🎨 Enhance console UI with colors and formatting.
-
-🌅 Display sunrise and sunset times.
-
-👨‍💻 Team Core5
-Member	ID	
-Md Asikur Rahman	C241092	
-Md Istiaq Uddin	C241089	
-Md Monjur Uddin	C241096
+```
