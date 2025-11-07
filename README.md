@@ -135,7 +135,7 @@ Weather_Information_System/
 
 Clone this repository:
 
-git clone https://github.com/your-username/Weather-Information-System.git
+[git clone https://github.com/your-username/Weather-Information-System.git](https://github.com/Ashik2892/Weather-Information-System.git)
 
 
 Navigate to the project directory:
